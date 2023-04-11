@@ -1,5 +1,5 @@
-import { createTheme } from "@mui/material"
-import { deepPurple, indigo } from "@mui/material/colors"
+import { createTheme } from '@mui/material';
+import { deepPurple, indigo } from '@mui/material/colors';
 
 export const LightTheme = createTheme({
     palette: {
@@ -20,4 +20,4 @@ export const LightTheme = createTheme({
             default: '#f7f6f3',
         }
     }
-})
+});
