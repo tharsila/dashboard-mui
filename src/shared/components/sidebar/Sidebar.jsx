@@ -1,12 +1,16 @@
-import { Avatar, Box, Divider, Drawer, List, ListItemButton, ListItemIcon, ListItemText, useTheme } from '@mui/material';
+import { Avatar, Box, Divider, Drawer, List, ListItemButton, ListItemIcon, ListItemText, useTheme, useMediaQuery } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
+import { useAppDrawerContext } from '../../contexts';
 
 export const Sidebar = ({ children }) => {
     const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.down('sm'));
+
+    const { isDrawerOpen, toggleDrawerOpen } = useAppDrawerContext();
 
     return (
         <>
-            <Drawer variant='permanent'>
+            <Drawer open={isDrawerOpen} variant={ matches ? 'temporary' : 'permanent'} onClose={toggleDrawerOpen}>
                 <Box width={theme.spacing(28)} display='flex' flexDirection='column' height='100%'>
                     <Box 
                         display='flex'
@@ -30,7 +34,7 @@ export const Sidebar = ({ children }) => {
                     </Box>
                 </Box>
             </Drawer>
-            <Box height='100vh' marginLeft={theme.spacing(28)}>
+            <Box height='100vh' marginLeft={matches ? 0 : theme.spacing(28)}>
                 {children}
             </Box>
         </>
