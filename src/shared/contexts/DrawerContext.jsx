@@ -8,13 +8,18 @@ export const useAppDrawerContext = () => {
 
 export const AppThemeProvider = ({children}) => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+    const [drawerOptions, setDrawerOptions] = useState([]);
     
     const toggleDrawerOpen = useCallback(() => {
         setIsDrawerOpen(oldDrawer => !oldDrawer);
     }, []);
 
+    const handleSetDrawerOptions = useCallback((newDrawerOptions) => {
+        setDrawerOptions(newDrawerOptions);
+    }, []);
+
     return (
-        <DrawerContext.Provider value={{isDrawerOpen, toggleDrawerOpen}}>
+        <DrawerContext.Provider value={{isDrawerOpen, drawerOptions, toggleDrawerOpen, setDrawerOptions: handleSetDrawerOptions}}>
             {children}
         </DrawerContext.Provider>
     );
