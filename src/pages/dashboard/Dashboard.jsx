@@ -3,7 +3,10 @@ import { PageLayoutBase } from '../../shared/layouts';
 
 export const Dashboard = () => {
     return (
-        <PageLayoutBase title='Página inicial'>
+        <PageLayoutBase 
+            title='Página inicial' 
+            tollbox='Barra de ferramentaxz'
+        >
             teste
         </PageLayoutBase>
     );
