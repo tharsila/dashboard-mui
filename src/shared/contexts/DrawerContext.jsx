@@ -6,7 +6,7 @@ export const useAppDrawerContext = () => {
     return useContext(DrawerContext);
 };
 
-export const AppThemeProvider = ({children}) => {
+export const AppDrawerProvider = ({children}) => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [drawerOptions, setDrawerOptions] = useState([]);
     

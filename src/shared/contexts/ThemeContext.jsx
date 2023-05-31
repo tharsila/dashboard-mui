@@ -8,7 +8,7 @@ export const useAppThemeContext = () => {
     return useContext(ThemeContext);
 };
 
-export const AppDrawerProvider = ({children}) => {
+export const AppThemeProvider = ({children}) => {
     const [themeName, setThemeName] = useState('light');
     
     const toggleTheme = useCallback(() => {
@@ -19,7 +19,7 @@ export const AppDrawerProvider = ({children}) => {
         if(themeName === 'light') return LightTheme;
 
         return DarkTheme;
-    }, [themeName]);
+    }, [themeName]); 
 
     return (
         <ThemeContext.Provider value={{themeName, toggleTheme}}>

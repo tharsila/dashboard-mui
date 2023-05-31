@@ -1,6 +1,7 @@
 import { Avatar, Box, Divider, Drawer, List, ListItemButton, ListItemIcon, ListItemText, useTheme, useMediaQuery } from '@mui/material';
-import { useAppDrawerContext } from '../../contexts';
+import { useAppDrawerContext, useAppThemeContext } from '../../contexts';
 import { useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
 
 const ListItemLink = ({ to, icon, label, onClick }) => {
     const navigate = useNavigate();
@@ -28,6 +29,7 @@ export const Sidebar = ({ children }) => {
     const matches = useMediaQuery(theme.breakpoints.down('sm'));
 
     const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useAppDrawerContext();
+    const { toggleTheme } = useAppThemeContext();
 
     return (
         <>
@@ -55,6 +57,14 @@ export const Sidebar = ({ children }) => {
                                 />
                             ))}
                         </List>
+                    </Box>
+                    <Box>
+                        <ListItemButton onClick={toggleTheme}>
+                            <ListItemIcon>
+                                <DarkModeIcon /> 
+                            </ListItemIcon>
+                            <ListItemText primary='Alternar tema' />
+                        </ListItemButton>
                     </Box>
                 </Box>
             </Drawer>
